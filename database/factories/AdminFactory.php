@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\User;
+use App\Models\Admin;
 use Faker\Generator as Faker;
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Admin::class, function (Faker $faker) {
     return [
         'name' => $this->faker->name,
         'email' => $this->faker->unique()->safeEmail,
