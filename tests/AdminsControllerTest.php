@@ -134,12 +134,14 @@ class AdminsControllerTest extends TestCase
                 'id',
                 'name',
                 'email',
+                'account_state',
                 'created_at'
             ])
             ->seeJsonEquals([
                 'id' => $admin->id,
                 'name' => $admin->name,
                 'email' => $admin->email,
+                'account_state' => 1,
                 'created_at' => (string) $admin->created_at
             ]);
     }
@@ -205,6 +207,7 @@ class AdminsControllerTest extends TestCase
                 'id' => $admin->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $admin->created_at
             ]);
 
@@ -213,6 +216,7 @@ class AdminsControllerTest extends TestCase
                 'name' => $admin->name .'_updated',
                 'email' => $admin->email .'_updated',
                 'password' => $admin->password,
+                'account_state' => 1,
                 'created_at' => (string) $admin->created_at,
                 'updated_at' => (string) $admin->updated_at
             ]);
@@ -239,6 +243,7 @@ class AdminsControllerTest extends TestCase
                 'id' => $admin->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $admin->created_at
             ]);
 
@@ -246,6 +251,7 @@ class AdminsControllerTest extends TestCase
                 'id' => $admin->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $admin->created_at
             ]);
 
@@ -268,6 +274,7 @@ class AdminsControllerTest extends TestCase
             'id' => $admin->id,
             'name' => $admin->name,
             'email' => $admin->email,
+            'account_state' => 0,
         ]);
     }
 }

@@ -2,7 +2,8 @@
 
 namespace Tests;
 
-use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+// use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 abstract class TestCase extends BaseTestCase
