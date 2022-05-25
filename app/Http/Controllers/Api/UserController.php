@@ -14,10 +14,10 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth:admins', ['except' => ['login', 'showAll', 'logout', 'refresh', 'me', 'meWithEvents', 'updateMe']]);
-        $this->middleware('auth:admins', ['except' => [ 'store', 'showAll']]);
-        // $this->middleware('auth:users', ['except' => ['store', 'login', 'index', 'showAll', 'show', 'showWithEvents', 'update', 'destroy']]);
-        $this->middleware('auth:users', ['except' => ['store', 'login']]);
+        $this->middleware('auth:admins', ['except' => ['login', 'showAll', 'logout', 'refresh', 'me', 'meWithEvents', 'updateMe']]);
+        // $this->middleware('auth:admins', ['except' => [ 'store', 'showAll']]);
+        $this->middleware('auth:users', ['except' => ['store', 'login', 'index', 'showAll', 'show', 'showWithEvents', 'update', 'destroy']]);
+        // $this->middleware('auth:users', ['except' => ['store', 'login']]);
     }
 
     public function index(Request $request)
