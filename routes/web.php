@@ -19,6 +19,19 @@ $router->get('/', function () use ($router) {
 
 $router->group(['namespace' => 'Api', 'prefix' => 'api'], function () use ($router) {
     /**
+     * Admins end-points
+     */
+    $router->get('/admins', 'AdminController@index');
+    $router->post('/admins', 'AdminController@store');
+    $router->post('/admins/login', 'AdminController@login');
+    $router->post('/admins/logout', 'AdminController@logout');
+    $router->post('/admins/refresh', 'AdminController@refresh');
+    $router->get('/admins/{id}', 'AdminController@show');
+    $router->get('/admins/auth/me', 'AdminController@me');
+    $router->put('/admins/{id}', 'AdminController@update');
+    $router->delete('/admins/{id}', 'AdminController@destroy');
+
+    /**
      * Users end-points
      */
     $router->post('/users', 'UserController@store');
