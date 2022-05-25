@@ -34,7 +34,7 @@ class UsersControllerTest extends TestCase
     {
         $faker = Factory::create();
 
-        $response = $this->actingAs($this->create('Admin', [], false), 'admins')->json('POST', 'api/users', [
+        $response = $this->json('POST', 'api/users', [
             'name' => $name = $faker->name,
             'email' => $email = $faker->email,
             'password' => 'secret'
@@ -76,7 +76,7 @@ class UsersControllerTest extends TestCase
     {
         $faker = Factory::create();
 
-        $response = $this->actingAs($this->create('Admin', [], false), 'admins')->json('POST', 'api/users', [
+        $response = $this->json('POST', 'api/users', [
             'name' => $name = $faker->name,
             'email' => $email = $faker->safeEmail,
             'password' => 'secret'
@@ -121,6 +121,7 @@ class UsersControllerTest extends TestCase
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
+                'account_state' => 1,
                 'created_at' => (string) $user->created_at
             ]);
     }
@@ -143,6 +144,7 @@ class UsersControllerTest extends TestCase
                         'id',
                         'name',
                         'email',
+                        'account_state',
                         'created_at'
                     ]
                 ]
@@ -169,6 +171,7 @@ class UsersControllerTest extends TestCase
         $response = $this->actingAs($user, 'users')->json('PUT', 'api/users/auth/me', [
             'name' => $name = $user->name . '_updated',
             'email' => $email = $user->email . '_updated',
+            'account_state' => 1
         ]);
 
         $response->seeStatusCode(200)
@@ -176,6 +179,7 @@ class UsersControllerTest extends TestCase
                 'id' => $user->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $user->created_at
             ]);
 
@@ -184,6 +188,7 @@ class UsersControllerTest extends TestCase
             'name' => $name,
             'email' => $email,
             'password' => $user->password,
+            'account_state' => 1,
             'created_at' => (string) $user->created_at,
             'updated_at' => (string) $user->updated_at
         ]);
@@ -203,6 +208,7 @@ class UsersControllerTest extends TestCase
             'name' => $name = $user->name . '_updated',
             'email' => $email = $user->email . '_updated',
             'password' => $newPassword = 'secret_updated',
+            'account_state' => 1
         ]);
 
         $response->seeStatusCode(200)
@@ -210,12 +216,14 @@ class UsersControllerTest extends TestCase
                 'id' => $user->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $user->created_at
             ])
             ->seeInDatabase('users', [
                 'id' => $user->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $user->created_at,
                 'updated_at' => (string) $user->updated_at
             ]);
@@ -241,6 +249,7 @@ class UsersControllerTest extends TestCase
                 'id' => $user->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $user->created_at
             ]);
 
@@ -249,6 +258,7 @@ class UsersControllerTest extends TestCase
             'name' => $name,
             'email' => $email,
             'password' => $user->password,
+            'account_state' => 1,
             'created_at' => (string) $user->created_at,
         ]);
 
@@ -274,6 +284,7 @@ class UsersControllerTest extends TestCase
                 'id' => $user->id,
                 'name' => $name,
                 'email' => $email,
+                'account_state' => 1,
                 'created_at' => (string) $user->created_at
             ]);
 
@@ -281,6 +292,7 @@ class UsersControllerTest extends TestCase
             'id' => $user->id,
             'name' => $name,
             'email' => $email,
+            'account_state' => 1,
             'created_at' => (string) $user->created_at,
         ]);
 
@@ -303,6 +315,7 @@ class UsersControllerTest extends TestCase
             'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
+            'account_state' => 0
         ]);
     }
 

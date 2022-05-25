@@ -41,8 +41,6 @@ $router->group(['namespace' => 'Api', 'prefix' => 'api'], function () use ($rout
     $router->get('/users', 'UserController@showAll');
     $router->get('/users/{id}', 'UserController@show');
     $router->get('/users/auth/me', 'UserController@me');
-    $router->get('/users/auth/me/events', 'UserController@meWithEvents');
-    $router->get('/users/{id}/events', 'UserController@showWithEvents');
     $router->put('/users/{id}', 'UserController@update');
     $router->put('/users/auth/me', 'UserController@updateMe');
     $router->delete('/users/{id}', 'UserController@destroy');
