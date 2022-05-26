@@ -22,6 +22,8 @@ return new class extends Migration
             $table->text('description');
             $table->integer('cellphone')->unsigned();
             $table->string('email', 50)->unique();
+            $table->text('menu_url');
+            $table->text('logo_url');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

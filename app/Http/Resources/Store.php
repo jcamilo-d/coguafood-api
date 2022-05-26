@@ -20,8 +20,11 @@ class Store extends JsonResource
             'location' => $this->location,
             'description' => $this->description,
             'cellphone' => $this->cellphone,
+            'menu_url' => $this->menu_url,
+            'logo_url' => $this->logo_url,
             'category_id' => (int) $this->category_id,
             'created_at' => (string) $this->created_at
         ];
+
     }
 }
